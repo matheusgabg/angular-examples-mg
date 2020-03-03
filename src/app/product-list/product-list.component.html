@@ -1,8 +1,9 @@
 <h2>Products</h2>
 
-<div *ngFor="let product of products">
+<div *ngFor="let product of products;index as productId">
   <h3>
-    <a [title]="product.name + ' details'">
+    <a [title]="product.name + ' details'"
+    [routerLink]="['/products',productId]">
       {{ product.name }}
     </a>
     <p *ngIf="product.description">
@@ -13,10 +14,13 @@
     </button>
     <!--Properties are passed in []-->
     <!--Events are passed in ()-->
+    <!--app-product-alerts is the selector of my component-->
     <app-product-alerts
       [product]="product"
       (notify)="onNotify()">
     </app-product-alerts>
+    <!--[product] property receives product object-->
+    <!--(notify) event assigned to onNotify function-->
   </h3>
 
 </div>
