@@ -18,14 +18,15 @@ export class CartComponent implements OnInit {
   ) { 
     this.checkoutForm = this.formBuilder.group({
       name: '',
-      address: ''
+      address: '',
+      list: this.cartService.getItems()
     });
   }
 
   ngOnInit() {
     this.items = this.cartService.getItems();
   }
-  
+
   onSubmit(customerData) {
     // Process checkout data here
     this.items = this.cartService.clearCart();
