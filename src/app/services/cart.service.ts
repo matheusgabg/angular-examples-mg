@@ -24,7 +24,9 @@ export class CartService {
     this.items = [];
     return this.items;
   }
-
+  deleteItem(itemId){
+    this.items.splice(itemId,1);
+  }
   getShippingPrices() {
     return this.http.get('/assets/shipping.json');
   }
